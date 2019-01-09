@@ -23,7 +23,7 @@ public extension UIImage {
      
      - returns: png data
      */
-    func wxCompressPNGData(type: WechatCompressType = .timeline) -> Date? {
+    func wxCompressPNGData(type: WechatCompressType = .timeline) -> Data? {
         let size = self.wxImageSize(type: type)
         let reImage = resizedImage(size: size)
         return reImage.pngData()
@@ -36,7 +36,7 @@ public extension UIImage {
      
      - returns: jpeg data
     */
-    func wxCompressJPEGData(type: WechatCompressType = .timeline) -> Date? {
+    func wxCompressJPEGData(type: WechatCompressType = .timeline) -> Data? {
         let size = self.wxImageSize(type: type)
         let reImage = resizedImage(size: size)
         return reImage.jpegData(compressionQuality: 0.5)
