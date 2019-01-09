@@ -21,6 +21,32 @@ public extension UIImage {
      
      - parameter type: session image boundary is 800, timeline is 1280
      
+     - returns: jpeg data
+     */
+    func wxCompressPNGData(type: WechatCompressType = .timeline) -> Date? {
+        let size = self.wxImageSize(type: type)
+        let reImage = resizedImage(size: size)
+        return reImage.pngData()
+    }
+    
+    /**
+     wechat image compress
+     
+     - parameter type: session image boundary is 800, timeline is 1280
+     
+     - returns: jpeg data
+    */
+    func wxCompressJPEGData(type: WechatCompressType = .timeline) -> Date? {
+        let size = self.wxImageSize(type: type)
+        let reImage = resizedImage(size: size)
+        return reImage.jpegData(compressionQuality: 0.5)
+    }
+    
+    /**
+     wechat image compress
+     
+     - parameter type: session image boundary is 800, timeline is 1280
+     
      - returns: thumb image
      */
     func wxCompress(type: WechatCompressType = .timeline) -> UIImage {
